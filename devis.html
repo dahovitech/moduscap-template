@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Demandez votre devis personnalisé gratuit pour votre maison modulaire en quelques minutes">
+  <meta name="author" content="Prudence Dieudonné ASSOGBA">
+  <title>ModusCap - Devis Gratuit</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="main-header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="ModusCap Logo" height="50"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="produits.html">Produits</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="a-propos.html">À propos</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item ms-lg-3"><a class="btn btn-primary" href="devis.html">Devis Gratuit</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container"><nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.html">Accueil</a></li><li class="breadcrumb-item active">Devis Gratuit</li></ol></nav></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h1>Obtenez Votre Devis Personnalisé</h1>
+        <p class="lead">Remplissez ce formulaire et recevez votre devis détaillé sous 24h</p>
+      </div>
+      
+      <div class="wizard-container" id="quote-wizard">
+        <!-- Wizard Steps Indicator -->
+        <div class="wizard-steps">
+          <div class="wizard-step active">
+            <div class="wizard-step-circle">1</div>
+            <div class="wizard-step-label">Projet</div>
+          </div>
+          <div class="wizard-step">
+            <div class="wizard-step-circle">2</div>
+            <div class="wizard-step-label">Configuration</div>
+          </div>
+          <div class="wizard-step">
+            <div class="wizard-step-circle">3</div>
+            <div class="wizard-step-label">Options</div>
+          </div>
+          <div class="wizard-step">
+            <div class="wizard-step-circle">4</div>
+            <div class="wizard-step-label">Informations</div>
+          </div>
+          <div class="wizard-step">
+            <div class="wizard-step-circle">5</div>
+            <div class="wizard-step-label">Récapitulatif</div>
+          </div>
+        </div>
+
+        <!-- Wizard Content -->
+        <div class="wizard-content">
+          <!-- Step 1: Projet & Budget -->
+          <div id="step-1" class="wizard-step-content active">
+            <h3 class="mb-4">Étape 1 : Votre Projet</h3>
+            
+            <div class="form-group">
+              <label class="form-label">Type de maison souhaité *</label>
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <input type="radio" class="btn-check" name="house-type" id="type-moderne" value="moderne" required>
+                  <label class="btn btn-outline-primary w-100 p-3" for="type-moderne">
+                    <svg width="30" height="30" fill="currentColor" class="d-block mx-auto mb-2" viewBox="0 0 16 16">
+                      <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+                    </svg>
+                    Moderne
+                  </label>
+                </div>
+                <div class="col-md-4">
+                  <input type="radio" class="btn-check" name="house-type" id="type-contemporain" value="contemporain">
+                  <label class="btn btn-outline-primary w-100 p-3" for="type-contemporain">
+                    <svg width="30" height="30" fill="currentColor" class="d-block mx-auto mb-2" viewBox="0 0 16 16">
+                      <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+                    </svg>
+                    Contemporain
+                  </label>
+                </div>
+                <div class="col-md-4">
+                  <input type="radio" class="btn-check" name="house-type" id="type-traditionnel" value="traditionnel">
+                  <label class="btn btn-outline-primary w-100 p-3" for="type-traditionnel">
+                    <svg width="30" height="30" fill="currentColor" class="d-block mx-auto mb-2" viewBox="0 0 16 16">
+                      <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+                    </svg>
+                    Traditionnel
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="surface" class="form-label">Surface approximative (m²) *</label>
+                  <input type="range" class="form-range" id="surface" min="30" max="200" value="80" step="10">
+                  <div class="d-flex justify-content-between">
+                    <span class="text-secondary small">30m²</span>
+                    <strong id="surface-value">80m²</strong>
+                    <span class="text-secondary small">200m²</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="budget" class="form-label">Budget disponible (€) *</label>
+                  <input type="range" class="form-range" id="budget" min="50000" max="500000" value="150000" step="10000">
+                  <div class="d-flex justify-content-between">
+                    <span class="text-secondary small">50k€</span>
+                    <strong id="budget-value">150 000€</strong>
+                    <span class="text-secondary small">500k€</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="deadline" class="form-label">Délai souhaité *</label>
+              <select class="form-select" id="deadline" required>
+                <option value="">Sélectionnez un délai</option>
+                <option value="3mois">Sous 3 mois</option>
+                <option value="6mois">3 à 6 mois</option>
+                <option value="12mois">6 à 12 mois</option>
+                <option value="flexible">Flexible</option>
+              </select>
+            </div>
+            
+            <div class="alert alert-info">
+              <strong>Prix estimé actuel :</strong> <span class="estimated-price">96 000 €</span>
+            </div>
+          </div>
+
+          <!-- Step 2: Configuration -->
+          <div id="step-2" class="wizard-step-content">
+            <h3 class="mb-4">Étape 2 : Configuration de votre Maison</h3>
+            
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="bedrooms" class="form-label">Nombre de chambres *</label>
+                  <select class="form-select" id="bedrooms" required>
+                    <option value="1">1 chambre</option>
+                    <option value="2">2 chambres</option>
+                    <option value="3" selected>3 chambres</option>
+                    <option value="4">4 chambres</option>
+                    <option value="5">5 chambres</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="bathrooms" class="form-label">Salles de bain *</label>
+                  <select class="form-select" id="bathrooms" required>
+                    <option value="1">1 salle de bain</option>
+                    <option value="2" selected>2 salles de bain</option>
+                    <option value="3">3 salles de bain</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="style" class="form-label">Style *</label>
+                  <select class="form-select" id="style" required>
+                    <option value="moderne" selected>Moderne</option>
+                    <option value="contemporain">Contemporain</option>
+                    <option value="traditionnel">Traditionnel</option>
+                    <option value="ecologique">Écologique</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Pièces spéciales (optionnel)</label>
+              <div class="row g-2">
+                <div class="col-md-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="special-rooms" value="office" id="room-office">
+                    <label class="form-check-label" for="room-office">Bureau (+5 000€)</label>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="special-rooms" value="pantry" id="room-pantry">
+                    <label class="form-check-label" for="room-pantry">Cellier (+3 000€)</label>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="special-rooms" value="laundry" id="room-laundry">
+                    <label class="form-check-label" for="room-laundry">Buanderie (+4 000€)</label>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="special-rooms" value="garage" id="room-garage">
+                    <label class="form-check-label" for="room-garage">Garage (+15 000€)</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="alert alert-info">
+              <strong>Prix estimé actuel :</strong> <span class="estimated-price">96 000 €</span>
+            </div>
+          </div>
+
+          <!-- Step 3: Options & Finitions -->
+          <div id="step-3" class="wizard-step-content">
+            <h3 class="mb-4">Étape 3 : Matériaux & Finitions</h3>
+            
+            <div class="form-group">
+              <label for="materials" class="form-label">Matériaux de construction *</label>
+              <select class="form-select" id="materials" required>
+                <option value="standard" selected>Standard (×1.0)</option>
+                <option value="premium">Premium (×1.25)</option>
+                <option value="luxe">Luxe (×1.5)</option>
+              </select>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="interior-finish" class="form-label">Finitions intérieures *</label>
+                  <select class="form-select" id="interior-finish" required>
+                    <option value="basic">Basique (×1.0)</option>
+                    <option value="intermediate" selected>Intermédiaire (×1.15)</option>
+                    <option value="highEnd">Haut de gamme (×1.35)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="exterior-finish" class="form-label">Finitions extérieures *</label>
+                  <select class="form-select" id="exterior-finish" required>
+                    <option value="basic">Basique (×1.0)</option>
+                    <option value="intermediate" selected>Intermédiaire (×1.15)</option>
+                    <option value="highEnd">Haut de gamme (×1.35)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Options écologiques (optionnel)</label>
+              <div class="row g-2">
+                <div class="col-md-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="eco-options" value="solarPanels" id="eco-solar">
+                    <label class="form-check-label" for="eco-solar">Panneaux solaires (+15 000€)</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="eco-options" value="heatPump" id="eco-heat">
+                    <label class="form-check-label" for="eco-heat">Pompe à chaleur (+12 000€)</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="eco-options" value="rainwater" id="eco-rain">
+                    <label class="form-check-label" for="eco-rain">Récupération eau pluie (+5 000€)</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="eco-options" value="tripleGlazing" id="eco-glaz">
+                    <label class="form-check-label" for="eco-glaz">Triple vitrage (+6 000€)</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-info">
+              <strong>Prix estimé actuel :</strong> <span class="estimated-price">96 000 €</span>
+            </div>
+          </div>
+
+          <!-- Step 4: Informations personnelles -->
+          <div id="step-4" class="wizard-step-content">
+            <h3 class="mb-4">Étape 4 : Vos Informations</h3>
+            
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="first-name" class="form-label">Prénom *</label>
+                  <input type="text" class="form-control" id="first-name" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="last-name" class="form-label">Nom *</label>
+                  <input type="text" class="form-control" id="last-name" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="email" class="form-label">Email *</label>
+                  <input type="email" class="form-control" id="email" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="phone" class="form-label">Téléphone *</label>
+                  <input type="tel" class="form-control" id="phone" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="family-status" class="form-label">Situation familiale</label>
+                  <select class="form-select" id="family-status">
+                    <option value="">Sélectionnez</option>
+                    <option value="celibataire">Célibataire</option>
+                    <option value="couple">En couple</option>
+                    <option value="famille">Famille</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="land-type" class="form-label">Type de terrain *</label>
+                  <select class="form-select" id="land-type" required>
+                    <option value="">Sélectionnez</option>
+                    <option value="proprietaire">Propriétaire</option>
+                    <option value="recherche">En recherche</option>
+                    <option value="promesse">Promesse de vente signée</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="land-address" class="form-label">Adresse du terrain (si applicable)</label>
+              <input type="text" class="form-control" id="land-address" placeholder="Ville et code postal">
+            </div>
+
+            <div class="form-group">
+              <label for="constraints" class="form-label">Contraintes ou informations particulières</label>
+              <textarea class="form-control" id="constraints" rows="4" placeholder="Terrain en pente, zone protégée, contraintes architecturales..."></textarea>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="consent" required>
+              <label class="form-check-label" for="consent">
+                J'accepte que mes données soient utilisées pour traiter ma demande de devis *
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 5: Récapitulatif -->
+          <div id="step-5" class="wizard-step-content">
+            <h3 class="mb-4">Étape 5 : Récapitulatif de votre Projet</h3>
+            <p class="lead mb-4">Vérifiez les informations avant l'envoi de votre demande</p>
+            
+            <div id="quote-summary">
+              <!-- Le récapitulatif sera généré dynamiquement -->
+            </div>
+
+            <div class="alert alert-warning">
+              <strong>Important :</strong> Ce prix est une estimation. Un devis détaillé vous sera envoyé sous 24h par email.
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="wizard-navigation">
+          <button type="button" class="btn btn-outline-secondary btn-lg" id="prev-step">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+            </svg>
+            Précédent
+          </button>
+          <button type="button" class="btn btn-primary btn-lg" id="next-step">
+            Suivant
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+            </svg>
+          </button>
+          <button type="button" class="btn btn-success btn-lg" id="submit-quote" style="display: none;">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+            </svg>
+            Envoyer ma demande
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light">
+    <div class="container text-center">
+      <h3>Des Questions ?</h3>
+      <p class="lead mb-4">Notre équipe est là pour vous accompagner dans votre projet</p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap">
+        <a href="contact.html" class="btn btn-outline-primary">Nous contacter</a>
+        <a href="tel:+33123456789" class="btn btn-outline-primary">+33 1 23 45 67 89</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 footer-section"><h5>ModusCap</h5><p>Leader de la construction modulaire depuis 2009.</p></div>
+        <div class="col-lg-2 col-md-6 footer-section"><h5>Liens rapides</h5><ul><li><a href="index.html">Accueil</a></li><li><a href="produits.html">Produits</a></li><li><a href="services.html">Services</a></li><li><a href="a-propos.html">À propos</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="col-lg-3 col-md-6 footer-section"><h5>Services</h5><ul><li><a href="services.html#conception">Conception</a></li><li><a href="services.html#fabrication">Fabrication</a></li><li><a href="services.html#livraison">Livraison</a></li><li><a href="services.html#installation">Installation</a></li></ul></div>
+        <div class="col-lg-3 col-md-6 footer-section"><h5>Contact</h5><ul><li>123 Avenue de la Construction</li><li>75001 Paris, France</li><li>Tél: +33 1 23 45 67 89</li><li>Email: contact@moduscap.fr</li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2025 ModusCap. Tous droits réservés.</p></div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/quote-form.js"></script>
+  <script>
+    // Mise à jour dynamique de la valeur des sliders
+    const surfaceSlider = document.getElementById('surface');
+    const surfaceValue = document.getElementById('surface-value');
+    if (surfaceSlider && surfaceValue) {
+      surfaceSlider.addEventListener('input', (e) => {
+        surfaceValue.textContent = e.target.value + 'm²';
+      });
+    }
+
+    const budgetSlider = document.getElementById('budget');
+    const budgetValue = document.getElementById('budget-value');
+    if (budgetSlider && budgetValue) {
+      budgetSlider.addEventListener('input', (e) => {
+        budgetValue.textContent = new Intl.NumberFormat('fr-FR').format(e.target.value) + '€';
+      });
+    }
+  </script>
+</body>
+</html>
