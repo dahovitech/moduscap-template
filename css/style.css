@@ -54,6 +54,8 @@
   font-size: 0.875rem;
   padding: 0.5rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1050;
 }
 
 .top-header-content {
@@ -128,6 +130,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   min-width: 120px;
   box-shadow: 0 4px 6px var(--shadow-medium);
+  z-index: 1060;
 }
 
 .language-selector .dropdown-item {
@@ -149,11 +152,10 @@
   color: var(--light-color);
 }
 
-.flag-icon {
-  width: 20px;
-  height: 14px;
+.flag-emoji {
+  font-size: 1.25rem;
+  line-height: 1;
   display: inline-block;
-  border-radius: 2px;
   vertical-align: middle;
 }
 
