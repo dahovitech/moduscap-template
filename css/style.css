@@ -262,6 +262,15 @@ a:hover {
   animation: fadeInUp 1s ease;
 }
 
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: var(--light-color);
+  opacity: 0.95;
+  line-height: 1.6;
+  animation: fadeInUp 1s ease;
+}
+
 .hero-section .btn {
   animation: fadeInUp 1.2s ease;
 }
