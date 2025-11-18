@@ -1382,21 +1382,24 @@ textarea.form-control {
 
 /* Amélioration des boutons d'action dans la carte produit */
 .product-card-actions {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
   gap: 0.5rem;
   margin-top: auto;
 }
 
 .product-card-actions .btn {
-  font-size: 0.8rem;
-  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  padding: 0.6rem 1rem;
   white-space: nowrap;
+  width: 100%;
+  justify-content: center;
 }
 
 .product-card-actions .btn svg {
   vertical-align: middle;
-  margin-right: 0.25rem;
+  margin-right: 0.3rem;
+  flex-shrink: 0;
 }
 
 /* Responsive pour les boutons */
