@@ -818,6 +818,21 @@ textarea.form-control {
   color: rgba(255, 255, 255, 0.7);
 }
 
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0;
+}
+
+.footer-bottom a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.footer-bottom a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
 .social-links {
   display: flex;
   gap: 1rem;
