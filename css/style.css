@@ -1337,3 +1337,84 @@ textarea.form-control {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+
+/* ============================================
+   MODALE APERÇU RAPIDE (QUICK PREVIEW)
+   ============================================ */
+#productModal .modal-content {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+#productModal .modal-header {
+  padding: 1.5rem;
+}
+
+#productModal .modal-title {
+  display: flex;
+  align-items: center;
+  color: var(--dark-color);
+  font-size: 1.25rem;
+}
+
+#productModal .modal-body img {
+  border-radius: 0;
+  transition: var(--transition-slow);
+}
+
+#productModal .modal-body img:hover {
+  transform: scale(1.02);
+}
+
+#productModal .badge {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+}
+
+#productModal .alert-primary {
+  background-color: rgba(44, 90, 160, 0.1);
+  border: 1px solid rgba(44, 90, 160, 0.2);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+}
+
+/* Amélioration des boutons d'action dans la carte produit */
+.product-card-actions {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.product-card-actions .btn {
+  font-size: 0.8rem;
+  padding: 0.5rem 0.75rem;
+  white-space: nowrap;
+}
+
+.product-card-actions .btn svg {
+  vertical-align: middle;
+  margin-right: 0.25rem;
+}
+
+/* Responsive pour les boutons */
+@media (max-width: 576px) {
+  .product-card-actions {
+    grid-template-columns: 1fr;
+  }
+  
+  #productModal .modal-body .row {
+    flex-direction: column;
+  }
+  
+  #productModal .modal-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  #productModal .modal-footer .btn {
+    width: 100%;
+  }
+}

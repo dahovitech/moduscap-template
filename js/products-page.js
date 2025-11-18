@@ -202,11 +202,26 @@
                 <small>à partir de</small>
               </div>
               <div class="product-card-actions">
-                <button class="btn btn-outline-primary btn-sm flex-fill" onclick="viewProductDetails(${product.id})">
+                <button class="btn btn-outline-secondary btn-sm flex-fill" onclick="showQuickPreview(${product.id})" title="Aperçu rapide">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                  </svg>
+                  Aperçu
+                </button>
+                <button class="btn btn-outline-primary btn-sm flex-fill" onclick="viewProductDetails(${product.id})" title="Voir tous les détails">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+                    <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+                  </svg>
                   Voir détails
                 </button>
-                <button class="btn btn-success btn-sm flex-fill" onclick="requestQuote(${product.id})">
-                  Devis gratuit
+                <button class="btn btn-success btn-sm flex-fill" onclick="requestQuote(${product.id})" title="Demander un devis">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                  </svg>
+                  Devis
                 </button>
               </div>
             </div>
@@ -534,7 +549,7 @@
   // ============================================
   
   /**
-   * Voir les détails d'un produit
+   * Voir les détails d'un produit (redirige vers la page détail)
    */
   window.viewProductDetails = function(productId) {
     const product = products.find(p => p.id === productId);
@@ -543,7 +558,18 @@
     // Sauvegarder le produit sélectionné
     saveToStorage('selected-product', product);
     
-    // Afficher dans une modale (pour la démo)
+    // Rediriger vers la page de détails
+    window.location.href = 'detail-produit.html?id=' + productId;
+  };
+
+  /**
+   * Afficher un aperçu rapide du produit (modale)
+   */
+  window.showQuickPreview = function(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!product) return;
+    
+    // Afficher dans une modale de preview
     showProductModal(product);
   };
 
@@ -562,38 +588,138 @@
   };
 
   /**
-   * Afficher la modale de détails produit
+   * Afficher la modale d'aperçu rapide du produit
    */
   function showProductModal(product) {
     const modalHTML = `
-      <div class="modal fade" id="productModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">${product.name}</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-light border-0">
+              <h5 class="modal-title fw-bold" id="productModalLabel">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16" class="me-2">
+                  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                </svg>
+                Aperçu Rapide - ${product.name}
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
             </div>
-            <div class="modal-body">
-              <img src="${product.image}" alt="${product.name}" class="img-fluid rounded mb-3">
-              <p>${product.description}</p>
-              <h6>Caractéristiques :</h6>
-              <ul>
-                <li>Surface : ${product.surface}m²</li>
-                <li>Chambres : ${product.bedrooms}</li>
-                <li>Salles de bain : ${product.bathrooms}</li>
-                <li>Style : ${product.style}</li>
-              </ul>
-              <h6>Équipements inclus :</h6>
-              <ul>
-                ${product.features.map(f => `<li>${f}</li>`).join('')}
-              </ul>
-              <div class="alert alert-info">
-                <strong>Prix à partir de : ${formatPrice(product.price)}</strong>
+            <div class="modal-body p-0">
+              <div class="row g-0">
+                <!-- Image du produit -->
+                <div class="col-md-6">
+                  <img src="${product.image}" alt="${product.name}" class="img-fluid w-100 h-100" style="object-fit: cover; max-height: 400px;">
+                </div>
+                
+                <!-- Informations du produit -->
+                <div class="col-md-6 p-4">
+                  <div class="mb-3">
+                    <span class="badge bg-primary mb-2">${product.style}</span>
+                    <h4 class="fw-bold mb-3">${product.name}</h4>
+                    <p class="text-muted">${product.description}</p>
+                  </div>
+                  
+                  <!-- Caractéristiques principales -->
+                  <div class="mb-3">
+                    <h6 class="fw-bold mb-3">Caractéristiques principales</h6>
+                    <div class="row g-2">
+                      <div class="col-6">
+                        <div class="d-flex align-items-center p-2 bg-light rounded">
+                          <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16" class="me-2 text-primary">
+                            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+                          </svg>
+                          <div>
+                            <small class="text-muted d-block">Surface</small>
+                            <strong>${product.surface}m²</strong>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="d-flex align-items-center p-2 bg-light rounded">
+                          <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16" class="me-2 text-primary">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                          </svg>
+                          <div>
+                            <small class="text-muted d-block">Chambres</small>
+                            <strong>${product.bedrooms}</strong>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="d-flex align-items-center p-2 bg-light rounded">
+                          <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16" class="me-2 text-primary">
+                            <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                          </svg>
+                          <div>
+                            <small class="text-muted d-block">Salles de bain</small>
+                            <strong>${product.bathrooms}</strong>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="d-flex align-items-center p-2 bg-light rounded">
+                          <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16" class="me-2 text-primary">
+                            <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+                          </svg>
+                          <div>
+                            <small class="text-muted d-block">Style</small>
+                            <strong class="text-capitalize">${product.style}</strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Équipements -->
+                  <div class="mb-3">
+                    <h6 class="fw-bold mb-2">Équipements inclus</h6>
+                    <div class="d-flex flex-wrap gap-2">
+                      ${product.features.map(f => `
+                        <span class="badge bg-success bg-opacity-10 text-success border border-success">
+                          <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16" class="me-1">
+                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                          </svg>
+                          ${f}
+                        </span>
+                      `).join('')}
+                    </div>
+                  </div>
+                  
+                  <!-- Prix -->
+                  <div class="alert alert-primary d-flex align-items-center justify-content-between mb-3">
+                    <div>
+                      <small class="text-muted d-block">Prix à partir de</small>
+                      <h4 class="fw-bold mb-0 text-primary">${formatPrice(product.price)}</h4>
+                    </div>
+                    <svg width="40" height="40" fill="currentColor" viewBox="0 0 16 16" class="text-primary opacity-25">
+                      <path d="M0 3a2 2 0 0 1 2-2h13.5a.5.5 0 0 1 0 1H15v2a1 1 0 0 1 1 1v8.5a1.5 1.5 0 0 1-1.5 1.5h-12A2.5 2.5 0 0 1 0 12.5V3zm1 1.732V12.5A1.5 1.5 0 0 0 2.5 14h12a.5.5 0 0 0 .5-.5V5H2a1.99 1.99 0 0 1-1-.268zM1 3a1 1 0 0 0 1 1h12V2H2a1 1 0 0 0-1 1z"/>
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-              <button type="button" class="btn btn-success" onclick="requestQuote(${product.id})">Demander un devis</button>
+            <div class="modal-footer bg-light border-0">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-1">
+                  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                </svg>
+                Fermer
+              </button>
+              <button type="button" class="btn btn-primary" onclick="viewProductDetails(${product.id}); bootstrap.Modal.getInstance(document.getElementById('productModal')).hide();">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-1">
+                  <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+                  <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+                </svg>
+                Voir tous les détails
+              </button>
+              <button type="button" class="btn btn-success" onclick="requestQuote(${product.id}); bootstrap.Modal.getInstance(document.getElementById('productModal')).hide();">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="me-1">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                </svg>
+                Demander un devis
+              </button>
             </div>
           </div>
         </div>
