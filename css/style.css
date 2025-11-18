@@ -152,11 +152,21 @@
   color: var(--light-color);
 }
 
-.flag-emoji {
-  font-size: 1.25rem;
-  line-height: 1;
-  display: inline-block;
+.language-selector svg {
   vertical-align: middle;
+  opacity: 0.9;
+}
+
+.language-selector .lang-code {
+  font-weight: 600;
+  margin-right: 0.5rem;
+  color: var(--primary-color);
+  min-width: 25px;
+  display: inline-block;
+}
+
+.language-selector .lang-name {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Social Icons in Top Header */
